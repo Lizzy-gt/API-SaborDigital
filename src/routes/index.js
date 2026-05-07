@@ -12,3 +12,6 @@ router.get('/', (req, res) => {
 router.use('/produtos', produtoRoutes) //Diversas rotas diferente e precisa de um arquivo que centraliza os end points
 router.use('/pedidos', pedidoRoutes)
 router.use('/cardapios', cardapioRoutes)
+
+
+module.exports = router;
