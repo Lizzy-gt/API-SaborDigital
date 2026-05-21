@@ -43,6 +43,29 @@ class produtoController {
       });
     }
   }
+  /////////////////////////////////////////////////////////////////
+    async uploadImagem (req, res) {
+
+    const files = req.files && req.files.length ? req.files : (req.file ? [req.file] : []);
+
+    if (!files || files.length === 0) {
+      return res.status(400).json({
+        message: 'Arquivo inválido'
+      });
+    }
+
+    const arquivos = files.map(f => ({
+      fieldname: f.fieldname,
+      filename: f.filename,
+      path: f.path
+    }));
+
+    return res.status(200).json({
+      message: arquivos.length > 1 ? 'Arquivos enviados com sucesso' : 'Arquivo enviado com sucesso',
+      arquivos
+    });
+    /////////////////////////////////////////////////////////////////
+  }
 
   async atualizarProduto(req, res) {
     try {
