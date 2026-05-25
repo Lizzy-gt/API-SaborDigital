@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 
     const uploadDir = path.join(__dirname, "..", baseDir, subFolder);
 
-    // cria a pasta automaticamente se não existir
+    
     fs.mkdirSync(uploadDir, { recursive: true });
 
     cb(null, uploadDir);

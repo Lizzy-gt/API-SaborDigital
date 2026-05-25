@@ -10,10 +10,10 @@ class produtoController {
       const resultado = await produtoServices.listarProdutos();
       res.json(resultado); //Ja vai dar 200, não precisa de status
     } catch (error) {
-      res.status(erro.status || 500).json({
+      res.status(error.status || 500).json({
         sucesso: false,
-        mensagem: erro.mensagem || "Erro interno do servidor",
-        erro: erro.stack || erro, //O erro que vai vir do banco ou do própio catch
+        mensagem: error.mensagem || "Erro interno do servidor",
+        erro: error.stack || error, //O erro que vai vir do banco ou do própio catch
       });
     }
   }
@@ -23,10 +23,10 @@ class produtoController {
       const resultado = await produtoServices.buscarProdutoPorId(req.params.id);
       res.json(resultado);
     } catch (error) {
-      res.status(erro.status || 500).json({
+      res.status(error.status || 500).json({
         sucesso: false,
-        mensagem: erro.mensagem || "Erro interno do servidor",
-        erro: erro.stack || erro,
+        mensagem: error.mensagem || "Erro interno do servidor",
+        erro: error.stack || erro,
       });
     }
   }
@@ -36,10 +36,10 @@ class produtoController {
       const resultado = await ProdutoSevice.cadastrarProduto(req.body); //Pega todos os dados da body
       res.json(resultado);
     } catch (error) {
-      res.status(erro.status || 500).json({
+      res.status(error.status || 500).json({
         sucesso: false,
-        mensagem: erro.mensagem || "Erro interno do servidor",
-        erro: erro.stack || erro,
+        mensagem: error.mensagem || "Erro interno do servidor",
+        erro: error.stack || error,
       });
     }
   }
@@ -75,10 +75,10 @@ class produtoController {
       );
       res.json(resultado);
     } catch (error) {
-      res.status(erro.status || 500).json({
+      res.status(error.status || 500).json({
         sucesso: false,
-        mensagem: erro.mensagem || "Erro interno do servidor",
-        erro: erro.stack || erro,
+        mensagem: error.mensagem || "Erro interno do servidor",
+        erro: error.stack || error,
       });
     }
   }
